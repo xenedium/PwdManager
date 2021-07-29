@@ -3,6 +3,7 @@
 
 #include <string.h>
 #include <stdlib.h>
+#include <iostream>
 
 typedef unsigned char uint8_t;
 

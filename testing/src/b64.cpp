@@ -12,6 +12,7 @@ char base64_map[] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L',
 
 
 char* base64_encode(const char* plain) {
+    if (!plain || *plain == 0) return NULL;
 
     char counts = 0;
     char buffer[3];

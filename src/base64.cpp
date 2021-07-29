@@ -12,7 +12,7 @@ uint8_t B64_FetchIndex(const char b64_ch)
 
 char *B64_Encode(const char *data)
 {
-    
+    if (!data || *data == 0) return NULL;
     char *output = (char*)malloc(strlen(data) * 4/3 + 4);
 
     char temp[3] = {0}, counter = 0, outc = 0;
@@ -51,6 +51,7 @@ char *B64_Encode(const char *data)
 
 char *B64_Decode(const char *data)
 {
+    if (!data || *data == 0) return NULL;
     char *output = (char*)malloc(strlen(data) * 3/4);
     uint8_t counter = 0, outc = 0, idx;
     char temp[4] = {0};
