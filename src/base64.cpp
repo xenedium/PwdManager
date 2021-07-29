@@ -35,7 +35,7 @@ char *B64_Encode(const char *data)
         output[outc++] = B64_MAP[temp[0] >> 2];
         if (counter == 1)
         {
-            output[outc++] = B64_MAP[(temp[0] & 0x3F) << 4];
+            output[outc++] = B64_MAP[(temp[0] & 0x03) << 4];
             output[outc++] = 0x3D;
         }
         else
