@@ -27,7 +27,5 @@ int main(int argc, char** argv)
         fcout << B64_Decode(inpt.c_str()) << endl;
     }
 
-      
-
     return 0;
 }

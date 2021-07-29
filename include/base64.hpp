@@ -2,6 +2,7 @@
 #define BASE64_HPP_INCLUDED
 
 #include <string.h>
+#include <stdlib.h>
 
 typedef unsigned char uint8_t;
 

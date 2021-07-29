@@ -1,6 +1,6 @@
 g++ src/strgen.cpp -o generate
 g++ src/b64.cpp -o b64
-cmake -S ../ -B ../build/
+cmake --build ../build/
 cp ../build/pwdmanager ./
 chmod +x ./pwdmanager
 ./generate
