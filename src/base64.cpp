@@ -60,13 +60,13 @@ char *B64_Decode(const char *data)
         temp[counter++] = *data++;
         if (counter == 4)
         {
-            output[outc++] = (B64_FetchIndex(temp[0]) << 2) | (B64_FetchIndex(temp[1] >> 4));
-            if ((idx = B64_FetchIndex(temp[2])) != 64) output[outc++] = (B64_FetchIndex(temp[1]) << 2) | (idx >> 2);
-            if ((idx = B64_FetchIndex(temp[3])) != 64) output[outc++] = (B64_FetchIndex(temp[2]) << 6) | (idx);
+            output[outc++] = (B64_FetchIndex(temp[0]) << 2) | (B64_FetchIndex(temp[1]) >> 4);
+            if ((idx = B64_FetchIndex(temp[2])) != 64) output[outc++] = (uint8_t)(B64_FetchIndex(temp[1]) << 4) | (idx >> 2);
+            if ((idx = B64_FetchIndex(temp[3])) != 64) output[outc++] = (uint8_t)(B64_FetchIndex(temp[2]) << 6) | (idx);
             counter = 0;
         }
     }
 
-    output[outc++] = 0;
+    output[outc] = 0;
     return output;
 }
