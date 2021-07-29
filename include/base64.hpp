@@ -3,8 +3,13 @@
 
 #include <string.h>
 
-//encode a null terminated string
-char *base64_encode(const char *data);
+typedef unsigned char uint8_t;
 
+
+//encode a null terminated string
+char *B64_Encode(const char *data);
+
+//decode a null terminated b64 encoded string
+char *B64_Decode(const char *data);
 
 #endif
