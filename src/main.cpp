@@ -27,7 +27,7 @@ int main(int argc, char** argv)
         fcout << B64_Decode(inpt.c_str()) << endl;
     }
 
-    system("sha256sum target.txt inc_output.txt input.txt dec_output.txt");    
+    system("sha256sum target.txt inc_output.txt input.txt dec_output.txt && rm inc_output.txt dec_output.txt");    
 
     return 0;
 }
