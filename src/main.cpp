@@ -5,5 +5,5 @@
 
 int main(int argc, char** argv)
 {
-    printf("%s\n", B64_Encode("abcf"));
+    printf("%s\n", B64_Encode("hello, world !"));
 }

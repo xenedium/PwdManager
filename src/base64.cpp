@@ -23,8 +23,8 @@ char *B64_Encode(const char *data)
         if (counter == 3)
         {
             output[outc++] = B64_MAP[temp[0] >> 2];
-            output[outc++] = B64_MAP[((temp[0] << 6) | (temp[1] >> 2)) >> 2];
-            output[outc++] = B64_MAP[((temp[1] << 4) | (temp[2] >> 4)) >> 2];
+            output[outc++] = B64_MAP[(uint8_t)((uint8_t)(temp[0] << 6) | (uint8_t)(temp[1] >> 2)) >> 2];
+            output[outc++] = B64_MAP[(uint8_t)((uint8_t)(temp[1] << 4) | (uint8_t)(temp[2] >> 4)) >> 2];
             output[outc++] = B64_MAP[temp[2] & 0x3F];
             counter = 0;
         }
@@ -40,7 +40,7 @@ char *B64_Encode(const char *data)
         }
         else
         {
-            output[outc++] = B64_MAP[((temp[0] << 6) | (temp[1] >> 2)) >> 2];
+            output[outc++] = B64_MAP[(uint8_t)((uint8_t)(temp[0] << 6) | (uint8_t)(temp[1] >> 2)) >> 2];
             output[outc++] = B64_MAP[(temp[1] & 0x0F) << 2];
         }
         output[outc++] = 0x3D;
