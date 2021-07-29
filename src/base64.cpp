@@ -2,6 +2,14 @@
 
 const char *B64_MAP = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
 
+
+uint8_t B64_FetchIndex(const char b64_ch)
+{
+    uint8_t pos ;
+    for(pos = 0; pos < 64 && B64_MAP[pos] != b64_ch; pos++);
+    return pos;
+}
+
 char *B64_Encode(const char *data)
 {
     
@@ -61,11 +69,4 @@ char *B64_Decode(const char *data)
 
     output[outc++] = 0;
     return output;
-}
-
-uint8_t B64_FetchIndex(const char b64_ch)
-{
-    uint8_t pos ;
-    for(pos = 0; pos < 64 && B64_MAP[pos] != b64_ch; pos++);
-    return pos;
 }

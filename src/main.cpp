@@ -1,7 +1,9 @@
-#include <iostream>
+#include <stdio.h>
 #include <base64.hpp>
+
+
 
 int main(int argc, char** argv)
 {
-    return 0;
+    printf("%s\n", B64_Encode("abcf"));
 }
