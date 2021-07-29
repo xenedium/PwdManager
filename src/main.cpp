@@ -8,9 +8,9 @@ using namespace std;
 int main(int argc, char** argv)
 {
     ifstream cin("input.txt");
-    ofstream cout("inc_output.txt");
+    ofstream cout("enc_output.txt");
 
-    for (size_t i = 0; i < 10000 ; i++)
+    for (size_t i = 0; i < 0xFFFF ; i++)
     {
         string inpt;
         cin >> inpt;
@@ -20,14 +20,14 @@ int main(int argc, char** argv)
     ifstream fcin("target.txt");
     ofstream fcout("dec_output.txt");
 
-    for (size_t i = 0; i < 10000; i++)
+    for (size_t i = 0; i < 0xFFFF; i++)
     {
         string inpt;
         fcin >> inpt;
         fcout << B64_Decode(inpt.c_str()) << endl;
     }
 
-    system("sha256sum target.txt inc_output.txt input.txt dec_output.txt && rm inc_output.txt dec_output.txt");    
+      
 
     return 0;
 }
