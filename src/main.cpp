@@ -14,7 +14,7 @@ int main(int argc, char** argv)
     {
         string inpt;
         cin >> inpt;
-        cout << B64_Encode(inpt.c_str());
+        cout << B64_Encode(inpt.c_str()) << endl;
     }
     
 
