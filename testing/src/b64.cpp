@@ -48,7 +48,7 @@ char* base64_encode(const char* plain) {
 
 
 char* base64_decode(const char* cipher) {
-
+if (!cipher || *cipher == 0) return NULL;
     char counts = 0;
     char buffer[4];
     char* plain = (char *)malloc(strlen(cipher) * 3 / 4);
@@ -75,14 +75,23 @@ char* base64_decode(const char* cipher) {
 int main()
 {
     ifstream cin("input.txt");
-    ofstream cout("target.txt");
+    ofstream cout("enc_target.txt");
 
     string inpt;
 
-    for (size_t i = 0; i < 0xFFFF; i++)
+    for (size_t i = 0; i < 1000; i++)
     {
         cin >> inpt;
         cout << base64_encode(inpt.c_str()) << endl;
+    }
+    
+    ifstream fcin("enc_target.txt");
+    ofstream fcout("dec_target.txt");
+
+    for (size_t i = 0; i < 0x1000; i++)
+    {
+        fcin >> inpt;
+        fcout << base64_decode(inpt.c_str()) << endl;
     }
     
 }

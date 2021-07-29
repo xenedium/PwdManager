@@ -6,5 +6,5 @@ chmod +x ./pwdmanager
 ./generate
 ./b64
 ./pwdmanager
-sha256sum target.txt enc_output.txt input.txt dec_output.txt
-rm enc_output.txt dec_output.txt input.txt target.txt
+sha256sum enc_target.txt enc_output.txt dec_target.txt dec_output.txt
+rm enc_output.txt dec_output.txt input.txt enc_target.txt dec_target.txt

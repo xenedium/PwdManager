@@ -9,20 +9,20 @@ int main(int argc, char** argv)
 {
     ifstream cin("input.txt");
     ofstream cout("enc_output.txt");
+    string inpt;
 
-    for (size_t i = 0; i < 0xFFFF ; i++)
+    for (size_t i = 0; i < 0x1000 ; i++)
     {
-        string inpt;
         cin >> inpt;
         cout << B64_Encode(inpt.c_str()) << endl;
     }
     
-    ifstream fcin("target.txt");
+    ifstream fcin("enc_target.txt");
     ofstream fcout("dec_output.txt");
 
-    for (size_t i = 0; i < 0xFFFF; i++)
+    for (size_t i = 0; i < 0x1000; i++)
     {
-        string inpt;
+        
         fcin >> inpt;
         fcout << B64_Decode(inpt.c_str()) << endl;
     }
