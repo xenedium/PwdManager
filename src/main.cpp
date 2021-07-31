@@ -1,31 +1,47 @@
 #include <iostream>
 #include <fstream>
+#include <string>
 
+
+#include <args.hpp>
 #include <base64.hpp>
 
 using namespace std;
 
 int main(int argc, char** argv)
 {
-    ifstream cin("input.txt");
-    ofstream cout("enc_output.txt");
-    string inpt;
-
-    for (size_t i = 0; i < 0x1000 ; i++)
-    {
-        cin >> inpt;
-        cout << B64_Encode(inpt.c_str()) << endl;
-    }
+    if (argc < 2) ThrowErrorAndExit(ERR_INVALID_ARGS, argv[0]);
     
-    ifstream fcin("enc_target.txt");
-    ofstream fcout("dec_output.txt");
-
-    for (size_t i = 0; i < 0x1000; i++)
+    if (!strcmp(argv[1], "--help"))
     {
-        
-        fcin >> inpt;
-        fcout << B64_Decode(inpt.c_str()) << endl;
+        cout << "Usage: " << argv[0] << " [--help] [--getpwd] [--setpwd] [--delpwd] [--listpwd]" << endl;
+        cout << "--help: Show this help." << endl;
+        cout << "--getpwd [pwd] [name]: Get a stored password." << endl;
+        cout << "--setpwd [pwd] [name] [password]: Add or change a password" << endl;
+        cout << "--delpwd [pwd] [name]: Delete a password." << endl;
+        cout << "--listpwd [pwd]: List all stored passwords." << endl;
+        return 0;
     }
+
+    if (!strcmp(argv[1], "--getpwd"))
+    {
+        if (argc < 4) ThrowErrorAndExit(ERR_INVALID_ARG_GETPWD, argv[0]);
+
+    }
+    else if (!strcmp(argv[1], "--setpwd"))
+    {
+        if (argc < 5) ThrowErrorAndExit(ERR_INVALID_ARG_SETPWD, argv[0]);
+    }
+    else if (!strcmp(argv[1], "--delpwd"))
+    {
+        if (argc < 4) ThrowErrorAndExit(ERR_INVALID_ARG_DELPWD, argv[0]);
+    }
+    else if (!strcmp(argv[1], "--listpwd"))
+    {
+        if (argc < 3) ThrowErrorAndExit(ERR_INVALID_ARG_LISTPWD, argv[0]);
+    }
+    else ThrowErrorAndExit(ERR_INVALID_ARGS, argv[0]);
+
     
     return 0;
 }
