@@ -35,7 +35,7 @@ void GenereateExdbFile()
     strcat(win32PATH, "\\PwdManager");
     if(!CreateDirectoryA(win32PATH, NULL)) ThrowErrorAndExit(ERR_CANNOT_CREATE_PWD_FILE, NULL);
     strcat(win32PATH, "\\encdb.exdb");
-    if((hFile = CreateFileA(win32PATH, GENERIC_WRITE, 0, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL)) == INVALID_HANDLE_VALUE) ThrowErrorAndExit(ERR_CANNOT_CREATE_PWD_FILE, NULL));
+    if((hFile = CreateFileA(win32PATH, GENERIC_WRITE, 0, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL)) == INVALID_HANDLE_VALUE) ThrowErrorAndExit(ERR_CANNOT_CREATE_PWD_FILE, NULL);
     
 
     #elif __linux__
@@ -52,7 +52,7 @@ void GenereateExdbFile()
 
     cout << "Enter a new password for you config file: ";
     string pwd;
-    getline(cin, pwd);
+    cin >> pwd;
 
     unsigned char hashedPwd[64];
     //Sha512Hash(pwd.c_str(), hashedPwd);
