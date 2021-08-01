@@ -54,15 +54,22 @@ void GenereateExdbFile()
     string pwd;
     cin >> pwd;
 
-    unsigned char hashedPwd[64];
-    //Sha512Hash(pwd.c_str(), hashedPwd);
-    memset(hashedPwd, 'a', 64);
+    unsigned char header[72] = {0};
+
+    uint32_t fversion = 0x00000001;
+    memcpy(header, &fversion, 4);
+
+    SHA512 hasher;
+    memcpy(header + 4, hasher.hash(pwd), 64);
+
+    uint32_t nPwd = 0;
+    memcpy(header + 68, &nPwd, 4);
 
     #ifdef _WIN32
-    WriteFile(hFile, hashedPwd, 64, NULL, NULL);
+    WriteFile(hFile, header, 72, NULL, NULL);
     CloseHandle(hFile);
     #elif __linux__
-    fwrite(hashedPwd, 1, 64, pFile);
+    fwrite(header, 1, 72, pFile);
     fclose(pFile);
     #endif
 
