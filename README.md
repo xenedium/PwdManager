@@ -24,3 +24,8 @@ the next 4 bytes are the number of passwords.
 after that, each password is saved in the following format:
 the first 10 bytes are the password name.
 
+
+
+# TODO:
+fix little/big endian issue with sha512
+implement aes256
