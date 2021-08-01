@@ -10,5 +10,5 @@ USAGE: ./pwdmanager [--help] [--getpwd] [--setpwd] [--delpwd] [--listpwd] [args]
 --listpwd [pwd]: List all stored passwords.
 
 # Infos
-<h2>For Win32 users the password will be saved in APPDATA local folder inside %LOCALAPPDATA%\PwdManager\encdb.exdb</h2>
-<h2>For Linux users the password will be saved in ~/.config/PwdManager/encdb.exdb</h2>
+<h4>For Win32 users the password will be saved in APPDATA local folder inside %LOCALAPPDATA%\PwdManager\encdb.exdb</h4>
+<h4>For Linux users the password will be saved in ~/.config/PwdManager/encdb.exdb</h4>
