@@ -3,8 +3,9 @@
 #include <string>
 
 
-#include <args.hpp>
+#include <err.hpp>
 #include <base64.hpp>
+#include <encdb.hpp>
 
 using namespace std;
 
@@ -26,19 +27,22 @@ int main(int argc, char** argv)
     if (!strcmp(argv[1], "--getpwd"))
     {
         if (argc < 4) ThrowErrorAndExit(ERR_INVALID_ARG_GETPWD, argv[0]);
-
+        CheckForExdbFile();
     }
     else if (!strcmp(argv[1], "--setpwd"))
     {
         if (argc < 5) ThrowErrorAndExit(ERR_INVALID_ARG_SETPWD, argv[0]);
+        CheckForExdbFile();
     }
     else if (!strcmp(argv[1], "--delpwd"))
     {
         if (argc < 4) ThrowErrorAndExit(ERR_INVALID_ARG_DELPWD, argv[0]);
+        CheckForExdbFile();
     }
     else if (!strcmp(argv[1], "--listpwd"))
     {
         if (argc < 3) ThrowErrorAndExit(ERR_INVALID_ARG_LISTPWD, argv[0]);
+        CheckForExdbFile();
     }
     else ThrowErrorAndExit(ERR_INVALID_ARGS, argv[0]);
 
