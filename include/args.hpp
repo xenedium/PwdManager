@@ -1,5 +1,5 @@
-#ifndef ARGS
-#define ARGS
+#ifndef ARGS_HPP_INCLUDED
+#define ARGS_HPP_INCLUDED
 
 #define ERR_INVALID_ARGS 0x1
 #define ERR_INVALID_ARG_GETPWD 0x2
