@@ -17,9 +17,13 @@ The passwords are encrypted using AES-256 and the mainapp password is hashed wit
 
 # .exdb file format
 The .exdb file is a binary file with the following structure (little endian):
+
 the first 4 bytes are the file version.
+
 the next 64 bytes are the password hash.
+
 the next 4 bytes are the number of passwords.
+
 
 after that, each password is saved in the following format:
 the first 10 bytes are the password name.
@@ -28,4 +32,5 @@ the first 10 bytes are the password name.
 
 # TODO:
 fix little/big endian issue with sha512
+
 implement aes256
