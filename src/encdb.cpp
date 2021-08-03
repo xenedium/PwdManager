@@ -56,7 +56,7 @@ void GenereateExdbFile()
 
     unsigned char header[72] = {0};
 
-    uint32_t fversion = 0x00000001;
+    uint32_t fversion = 0x01000000;
     memcpy(header, &fversion, 4);
 
     SHA512 hasher;

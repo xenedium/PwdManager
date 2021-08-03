@@ -24,8 +24,21 @@ uint8_t* SHA512::hash(const std::string input)
     buffer = preprocess((unsigned char *)input.c_str(), nBuffer);
     process(buffer, nBuffer, h);
     freeBuffer(buffer, nBuffer);
-    return (uint8_t*)h;
+    for (size_t i = 0; i < 8; i++) EndianPermute(h+i);
+    return (uint8_t *)h;
 }
+void SHA512::EndianPermute(uint64_t *h)
+{
+    uint8_t *p = (uint8_t *)h;
+    uint8_t t;
+    for (size_t i = 0; i < 4; i++)
+    {
+        t = p[i];
+        p[i] = p[7 - i];
+        p[7 - i] = t;
+    }
+}
+
 
 uint64_t **SHA512::preprocess(const unsigned char *input, size_t &nBuffer)
 {

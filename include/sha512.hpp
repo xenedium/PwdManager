@@ -41,6 +41,7 @@ private:
     void appendLen(uint64_t mLen, uint64_t mp, uint64_t &lo, uint64_t &hi);
     void process(uint64_t **buffer, size_t nBuffer, uint64_t *h);
     void freeBuffer(uint64_t **buffer, size_t nBuffer);
+    void EndianPermute(uint64_t *h);
 
 public:
     uint8_t *hash(const std::string input);

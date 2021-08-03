@@ -31,6 +31,6 @@ the first 10 bytes are the password name.
 
 
 # TODO:
-fix little/big endian issue with sha512
+fix little/big endian issue with sha512 -- fixed
 
 implement aes256
